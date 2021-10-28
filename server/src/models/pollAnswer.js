@@ -1,6 +1,9 @@
 const mongoose = require('mongoose')
+const Joi = require("joi")
 
-const schema = new mongoose.Schema({
+const schema = Joi.object()
+
+const modelSchema = new mongoose.Schema({
   dateCreated: {
     type: Date,
     required: true
@@ -19,4 +22,9 @@ const schema = new mongoose.Schema({
   }
 })
 
-module.exports = mongoose.model('PollAnswer', schema)
+module.exports = {
+	PollAnswer: mongoose.model('PollAnswer', modelSchema),
+	schema: schema
+}
+
+

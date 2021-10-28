@@ -63,7 +63,7 @@ module.exports = (app) => {
             chai.assert.typeOf(res.body, 'Array')
             chai.assert.notStrictEqual(res.body.length, 0)
             chai.request(global.server)
-              .get('/poll/' + res.body[0]._id)
+              .get('/poll/' + res.body[0].id)
               .end((err, res) => {
                 if (err) {
                   console.log(err)
@@ -87,7 +87,7 @@ module.exports = (app) => {
           } else {
             chai.assert.typeOf(res.body, 'Array')
             chai.request(global.server)
-              .put('/poll/' + res.body[0]._id)
+              .put('/poll/' + res.body[0].id)
               .send({
                 question: 'How can I display the date in UTC format in JavaScript?',
                 options: [
@@ -141,7 +141,7 @@ module.exports = (app) => {
             chai.assert.typeOf(res.body, 'Array')
             chai.assert.notStrictEqual(res.body.length, 0)
             chai.request(global.server)
-              .post('/poll/' + res.body[0]._id)
+              .post('/poll/' + res.body[0].id)
               .send([
                 {
                   id: '1',
@@ -170,7 +170,7 @@ module.exports = (app) => {
             for (let i = 0; i < res.body.length; i++) {
               const poll = res.body[i]
               chai.request(global.server)
-                .delete('/poll/' + poll._id)
+                .delete('/poll/' + poll.id)
                 .end((err, r) => {
                   if (err) { console.log(err) } else {
                     chai.assert.strictEqual(r.status, 200)

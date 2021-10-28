@@ -1,6 +1,6 @@
 const config = require('../config/config')
-const Poll = require('../models/poll')
-const PollAnswer = require('../models/pollAnswer')
+const { Poll } = require('../models/poll')
+const { PollAnswer } = require('../models/pollAnswer')
 
 module.exports = {
   create (req, res) {
@@ -15,11 +15,11 @@ module.exports = {
       })
   },
   retrieve (req, res, next) {
-    res.status(200).send(res.locals.poll)
+    res.status(200).send(res.locals.poll.json())
   },
   retrieveAll (req, res) {
     Poll.find()
-      .then(docs => res.status(200).send(docs))
+      .then(docs => res.status(200).send(docs.map(doc => doc.json())))
       .catch(err => {
         console.log(err)
         res.status(500).send({ error: config.message.status_code['500'] })

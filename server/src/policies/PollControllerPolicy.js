@@ -1,31 +1,7 @@
 const config = require('../config/config')
-const Joi = require('joi')
-const Poll = require('../models/poll')
-
-const schema = Joi.object({
-  question: Joi.string().required(),
-  options: Joi.array().required().items(Joi.object().keys({
-    type: Joi.string().required(),
-    label: Joi.string().required(),
-    value: Joi.string().required(),
-    group: Joi.string()
-  }).custom((obj, helper) => {
-    switch (obj.type) {
-      case 'radio':
-        if (!obj.group) {
-          throw new Error(config.message.error.GROUP_UNSPECIFIED)
-        }
-        break
-      default:
-        throw new Error(config.message.error.INVALID_OPTION_TYPE)
-    }
-
-    return obj
-  }))
-})
+const { schema, Poll } = require('../models/poll')
 
 module.exports = {
-  schema: schema,
   create (req, res, next) {
     const { error } = schema.validate(req.body)
 

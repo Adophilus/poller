@@ -16,15 +16,16 @@ module.exports = {
   port: process.env.PORT || 8080,
   message: {
     error: {
+      GROUP_UNSPECIFIED: "the 'group' of an opton was unspecified",
       INVALID_PAYLOAD: 'invalid payload!',
       ID_UNSPECIFIED: "the 'id' field was unspecified",
-      LABEL_UNSPECIFIED: "the 'label' of an opton was unspecified",
-      GROUP_UNSPECIFIED: "the 'group' of an opton was unspecified",
-      VALUE_UNSPECIFIED: "the 'value' of an option was unspecified",
       INVALID_OPTION_TYPE: 'the option type supplied is invalid',
-      QUESTION_UNSPECIFIED: "the 'question' field was unspecified",
+      LABEL_UNSPECIFIED: "the 'label' of an opton was unspecified",
       OPTIONS_UNSPECIFIED: "the 'options' field was unspecified",
-      POLL_DELETED: 'poll deleted!'
+      PLACEHOLDER_UNSPECIFIED: "the 'placeholder' field was unspecified",
+      POLL_DELETED: 'poll deleted!',
+      QUESTION_UNSPECIFIED: "the 'question' field was unspecified",
+      VALUE_UNSPECIFIED: "the 'value' of an option was unspecified",
     },
     status_code: {
       400: 'poll not found',
