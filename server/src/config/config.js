@@ -25,7 +25,7 @@ module.exports = {
       PLACEHOLDER_UNSPECIFIED: "the 'placeholder' field was unspecified",
       POLL_DELETED: 'poll deleted!',
       QUESTION_UNSPECIFIED: "the 'question' field was unspecified",
-      VALUE_UNSPECIFIED: "the 'value' of an option was unspecified",
+      VALUE_UNSPECIFIED: "the 'value' of an option was unspecified"
     },
     status_code: {
       400: 'poll not found',

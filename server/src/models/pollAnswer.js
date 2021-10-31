@@ -1,14 +1,14 @@
 const mongoose = require('mongoose')
-const Joi = require("joi")
+const Joi = require('joi')
 
 const schema = Joi.object({
-	dateCreated: Joi.date(),
-	pollId: Joi.string().required(),
-	user: Joi.string().required(),
-	answers: Joi.array().items(Joi.object({
-		id: Joi.number().required(),
-		value: Joi.string()
-	}))
+  dateCreated: Joi.date(),
+  pollId: Joi.string().required(),
+  user: Joi.string().required(),
+  answers: Joi.array().items(Joi.object({
+    id: Joi.number().required(),
+    value: Joi.string()
+  }))
 })
 
 const modelSchema = new mongoose.Schema({
@@ -31,6 +31,6 @@ const modelSchema = new mongoose.Schema({
 })
 
 module.exports = {
-	PollAnswer: mongoose.model('PollAnswer', modelSchema),
-	schema: schema
+  PollAnswer: mongoose.model('PollAnswer', modelSchema),
+  schema: schema
 }

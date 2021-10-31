@@ -1,3 +1,7 @@
-const fs = require("fs")
+const fs = require('fs')
 
-fs.readdirSync("./").forEach((file) => require(`./${file}`)(app))
+module.exports = (app) => {
+  fs.readdirSync(__dirname)
+    .filter(file => file !== 'index.js')
+    .forEach(file => require(`./${file}`)(app))
+}

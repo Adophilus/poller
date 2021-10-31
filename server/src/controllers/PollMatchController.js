@@ -1,5 +1,5 @@
 const config = require('../config/config')
-const { PollMatch } = require('../models/PollMatch.js')
+const { PollMatch } = require('../models/pollMatch.js')
 
 module.exports = {
   retrieveAll (req, res) {
