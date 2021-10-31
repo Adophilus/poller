@@ -4,13 +4,17 @@ const Joi = require("joi")
 const schema = Joi.object({
 	question: Joi.string().required(),
 	options: Joi.array().required().items(Joi.object().keys({
+		id: Joi.number().required(),
 		type: Joi.string().required(),
 		label: Joi.string().required(),
 		value: Joi.string().required(),
 		group: Joi.string(),
-		match: Joi.string(),
+		match: Joi.object({
+			pattern: Joi.string(),
+			errorMessage: Joi.string().required()
+		}),
 		placeholder: Joi.string()
-	}).custom((obj, helper) => {
+	}).custom(async (obj, helper) => {
 		switch (obj.type) {
 			case 'input':
 				if (!obj.placeholder) {

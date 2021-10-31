@@ -23,6 +23,7 @@
     "mocha": "^9.1.2",
     "mongoose": "^5.13.2",
     "morgan": "^1.10.0",
+    "node-calendar": "^0.1.5",
     "nodemon": "^2.0.12",
     "validator": "^10.11.0"
   },

@@ -12,10 +12,14 @@ module.exports = {
         })
     }
 
+		let i = 0;
     res.locals.poll = {
-      creator: '',
+      creator: 'testUser',
       question: req.body.question,
-      options: req.body.options
+      options: req.body.options.map(option => {
+				option.id = ++i
+				return option
+			})
     }
 
     return next()
